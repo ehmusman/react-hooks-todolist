@@ -4,7 +4,7 @@ import Todo from './components/Todo';
 import React, { useState } from 'react';
 
 function App() {
-  const [todos, setTodos] = useState([
+  const [todos] = useState([
     {
       text: "learn about react",
       inCompleted: true
