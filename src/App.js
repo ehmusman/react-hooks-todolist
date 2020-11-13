@@ -2,9 +2,10 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import Todo from './components/Todo';
 import React, { useState } from 'react';
+import TodoForm from './components/TodoForm';
 
 function App() {
-  const [todos] = useState([
+  const [todos, setTodos] = useState([
     {
       text: "learn about react",
       inCompleted: true
@@ -17,7 +18,12 @@ function App() {
       text: "Building really cool react apps",
       inCompleted: true
     }
-  ])
+  ]);
+
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  }
   return (
     <div className="bg-primary pt-5" style={{ height: "100vh" }}>
       <div className="container">
@@ -30,6 +36,9 @@ function App() {
             todo={todo}
           />
         ))}
+        <TodoForm
+          addTodo={addTodo}
+        />
       </div>
     </div>
   );
