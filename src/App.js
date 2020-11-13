@@ -19,7 +19,7 @@ function App() {
     }
   ])
   return (
-    <div className="App bg-primary pt-5" style={{ height: "100vh" }}>
+    <div className="bg-primary pt-5" style={{ height: "100vh" }}>
       <div className="container">
         <h1 className=" align-item-center">This is a Simple TODO App with CRUD Operations</h1>
 
