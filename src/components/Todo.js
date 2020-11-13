@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Todo({ index, todo, completeTodo }) {
+function Todo({ index, todo, completeTodo, removeTodo }) {
     return (
         <div className='row bg-light mb-3 rounded'>
             <div className="col-md-9 h4 py-1" style={{ textDecoration: todo.isCompleted ? "line-through" : '', color: todo.isCompleted ? "red" : '' }}>
@@ -10,7 +10,7 @@ function Todo({ index, todo, completeTodo }) {
                 <button className="btn btn-secondary btn-block py-2" onClick={() => completeTodo(index)}>Completed</button>
             </div>
             <div className="col-md-1">
-                <button className="btn btn-danger btn-block py-2 ">X</button>
+                <button className="btn btn-danger btn-block py-2 " onClick={() => removeTodo(index)}>X</button>
             </div>
         </div>
     )

@@ -7,15 +7,23 @@ import TodoForm from './components/TodoForm';
 function App() {
   const [todos, setTodos] = useState([
     {
-      text: "learn about react",
+      text: "This is simple text",
       isCompleted: false
     },
     {
-      text: "Meet Friend For Dinner",
+      text: "You can generate more like this",
       isCompleted: false
     },
     {
-      text: "Building really cool react apps",
+      text: "But these are not persistant",
+      isCompleted: false
+    },
+    {
+      text: "You can remove these also",
+      isCompleted: false
+    },
+    {
+      text: "Delete me Sir!",
       isCompleted: false
     }
   ]);
@@ -29,22 +37,28 @@ function App() {
     newTodos[index].isCompleted = true;
     setTodos(newTodos)
   }
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1)
+    setTodos(newTodos)
+  }
   return (
     <div className="bg-primary pt-5" style={{ height: "100vh" }}>
       <div className="container">
         <h1 className=" align-item-center">This is a Simple TODO App with CRUD Operations</h1>
-
+        <TodoForm
+          addTodo={addTodo}
+        />
         {todos.map((todo, index) => (
           <Todo
             key={index}
             index={index}
             todo={todo}
             completeTodo={completeTodo}
+            removeTodo={removeTodo}
           />
         ))}
-        <TodoForm
-          addTodo={addTodo}
-        />
+
       </div>
     </div>
   );
