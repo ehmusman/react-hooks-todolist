@@ -8,21 +8,26 @@ function App() {
   const [todos, setTodos] = useState([
     {
       text: "learn about react",
-      inCompleted: true
+      isCompleted: false
     },
     {
       text: "Meet Friend For Dinner",
-      inCompleted: true
+      isCompleted: false
     },
     {
       text: "Building really cool react apps",
-      inCompleted: true
+      isCompleted: false
     }
   ]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
+  }
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos)
   }
   return (
     <div className="bg-primary pt-5" style={{ height: "100vh" }}>
@@ -34,6 +39,7 @@ function App() {
             key={index}
             index={index}
             todo={todo}
+            completeTodo={completeTodo}
           />
         ))}
         <TodoForm
